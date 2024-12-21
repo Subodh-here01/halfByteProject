@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Manager</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark mode styles */
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        header nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #777;
+        }
+
+        li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Dark mode styles for dropdown */
+        .dark-mode .dropdown-content {
+            background-color: #444;
+        }
+
+        /* Dark mode toggle button */
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #777;
+        }
+
+        .main-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .clubs {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .club {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .club:hover {
+            transform: scale(1.05);
+        }
+
+        .dark-mode .club {
+            background-color: #444;
+            border-color: #777;
+            color: #f4f4f4;
+        }
+
+        /* Footer styles */
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        .dark-mode footer {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <a href="profile.html">Profile</a>
+                </li>
+                <li>
+                    <a>Clubs</a>
+                    <div class="dropdown-content">
+                        <a href="myclubs.html">My Clubs</a>
+                        <a href="totalclubs.HTML">Total Clubs</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="">Events</a>
+                    <div class="dropdown-content">
+                        <a href="#">Upcoming Events</a>
+                        <a href="#">Past Events</a>
+                        <a href="eventcalendar.html">Event Calendar</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="contactus.html">Contact Us</a>
+                </li>
+            </ul>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <h1>Welcome to Club Manager</h1>
+        <p>Here are your clubs:</p>
+        <div class="clubs">
+            <div class="club">
+                <h2>codeRIT</h2>
+                <p>A club for coding enthusiasts at RIT. Join us to improve your programming skills!</p>
+            </div>
+
+            <div class="club">
+                <h2>gdsc</h2>
+                <p>Google Developer Student Club at RIT. Learn about Google technologies and solve real-world problems.</p>
+            </div>
+
+            <div class="club">
+                <h2>clutchRIT</h2>
+                <p>The clutch for RIT's esports community. Join us for gaming events and competitions!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Club Manager. All rights reserved.</p>
+    </footer>
+
+    <script>
+    
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+
+</body>
+</html>

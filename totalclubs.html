@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MSRIT Clubs</title>
+    <style>
+    
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+            position: relative;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            position: relative; 
+            margin: 0 20px;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        header nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            left: 0;
+            background-color: #444;
+            min-width: 200px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .dropdown-content a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        header nav ul li:hover .dropdown-content {
+            display: block; 
+        }
+
+    
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #777;
+        }
+
+        
+        .main-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .clubs-list {
+            margin-top: 2rem;
+            font-size: 1.2rem;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .clubs-list li {
+            background-color: #fff;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .clubs-list li:hover {
+            transform: scale(1.05);
+        }
+
+        .dark-mode .clubs-list li {
+            background-color: #444;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .dark-mode footer {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="/profile.html">Profile</a></li>
+                <li><a href="clubs.html">Clubs</a>
+                    <ul class="dropdown-content">
+                        <li><a href="myclubs.html">My Clubs</a></li>
+                        <li><a href="totalclubs.HTML">Total Clubs</a></li>
+                    </ul>
+                </li>
+                <li><a href="events.html">Events</a>
+                    <ul class="dropdown-content">
+                        <li><a href="#">Upcoming Events</a></li>
+                        <li><a href="#">Past Events</a></li>
+                        <li><a href="#">Event Calendar</a></li>
+                    </ul>
+                </li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+    </header>
+
+    <div class="main-content">
+        <h1>Total Clubs at MSRIT</h1>
+        <p>There are a total of 17 clubs at MSRIT. Below is the list of clubs:</p>
+
+        
+        <ul class="clubs-list">
+            <li>CODERIT</li>
+            <li>GDSC</li>
+            <li>DEVELOPMENT STUDENT CLUB</li>
+            <li>ROBORIT</li>
+            <li>IEEE</li>
+            <li>E-CELL</li>
+            <li>TEDXMSRIT</li>
+            <li>COMEDYCLUB</li>
+            <li>STARDUST</li>
+            <li>THEATRIX</li>
+            <li>TNT DANCING</li>
+            <li>LASYA</li>
+            <li>STUDIORIT</li>
+            <li>ICLICK</li>
+            <li>CLUTCHRIT</li>
+            <li>VELOCITA</li>
+            <li>STEER RACING</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Club Manager. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
