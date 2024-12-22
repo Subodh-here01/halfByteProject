@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Calendar | Club Manager</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         /* Basic Reset */
         * {
@@ -30,6 +31,7 @@
         header nav {
             background-color: #333;
             padding: 1rem;
+            position: relative;
         }
 
         header nav ul {
@@ -40,12 +42,51 @@
 
         header nav ul li {
             margin: 0 20px;
+            position: relative;
         }
 
         header nav ul li a {
             color: white;
             text-decoration: none;
             font-size: 1.2rem;
+        }
+
+        /* Dropdown Styles */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #444;
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            top: 100%;
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            font-size: 1rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #555;
+        }
+
+        /* Show Dropdown on Hover */
+        header nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Dark Mode Navigation */
+        body.dark-mode header nav {
+            background-color: #222;
+        }
+
+        body.dark-mode header nav ul li:hover .dropdown-content {
+            background-color: #555;
         }
 
         /* Event Calendar Section */
@@ -58,32 +99,43 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
+        body.dark-mode .event-calendar-section {
+            background-color: #444;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
         .event-calendar-section h1 {
             text-align: center;
             margin-bottom: 1rem;
         }
 
-        .theme-toggle-btn {
-            margin-top: 20px;
-            padding: 0.5rem 1rem;
-            background-color: #333;
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555;
             color: white;
             border: none;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            font-size: 1.1rem;
+            border-radius: 5px;
+            font-size: 1rem;
         }
 
-        .theme-toggle-btn:hover {
-            background-color: #555;
+        .dark-mode-toggle:hover {
+            background-color: #777;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 1rem;
             background-color: #333;
             color: white;
             margin-top: 2rem;
+        }
+
+        body.dark-mode footer {
+            background-color: #222;
         }
     </style>
 </head>
@@ -93,10 +145,24 @@
             <ul>
                 <li><a href="home.html">Home</a></li>
                 <li><a href="profile.html">Profile</a></li>
-                <li><a href="clubs.html">Clubs</a></li>
-                <li><a href="events.html">Events</a></li>
+                <li>
+                    <a href="clubs.html">Clubs</a>
+                    <div class="dropdown-content">
+                        <a href="myclubs.html">My Clubs</a>
+                        <a href="totalclubs.HTML">Total Clubs</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="events.html">Events</a>
+                    <div class="dropdown-content">
+                        <a href="upcomingevents.html">Upcoming Events</a>
+                        <a href="pastevent.html">Past Events</a>
+                        <a href="eventcalendar.html">Event Calendar</a>
+                    </div>
+                </li>
                 <li><a href="contactus.html">Contact Us</a></li>
             </ul>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
         </nav>
     </header>
 
@@ -104,8 +170,6 @@
         <h1>Event Calendar</h1>
         <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=Asia%2FKolkata&showPrint=0&src=c3N1Ym9kaHNrZDI2QGdtYWlsLmNvbQ&src=YWRkcmVzc2Jvb2kjY29udGFjdHNAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&src=ZW4uaW5kaWFuI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%23039BE5&color=%2333B679&color=%230B8043" style="border:solid 1px #777" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 
-        <!-- Custom Theme Toggle Button -->
-        <button class="theme-toggle-btn" onclick="toggleTheme()">Toggle Dark/Light Mode</button>
     </section>
 
     <footer>
@@ -113,8 +177,11 @@
     </footer>
 
     <script>
-        // Function to toggle between light and dark modes
         function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        function toggleDarkMode() {
             document.body.classList.toggle('dark-mode');
         }
     </script>
