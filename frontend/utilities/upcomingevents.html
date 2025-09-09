@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Events - Club Manager</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            padding: 1rem;
+        }
+
+        header nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        header nav ul li {
+            margin: 0 20px;
+            position: relative;
+        }
+
+        header nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            display: block;
+        }
+
+        header nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #555;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #777;
+        }
+
+        li:hover .dropdown-content {
+            display: block;
+        }
+
+        .dark-mode .dropdown-content {
+            background-color: #444;
+        }
+
+        .dark-mode-toggle {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background-color: #777;
+        }
+
+        .main-content {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .description {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark-mode .description {
+            background-color: #444;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .description h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .description p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .events-list {
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .dark-mode .events-list {
+            background-color: #444;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .event {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event p {
+            font-size: 1.1rem;
+        }
+
+        .register-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .register-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .dark-mode .register-btn {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        .dark-mode footer {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li>
+                    <a href="#">Clubs</a>
+                    <div class="dropdown-content">
+                        <a href="myclubs.html">My Clubs</a>
+                        <a href="totalclubs.html">Total Clubs</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                    <div class="dropdown-content">
+                        <a href="upcomingevents.html">Upcoming Events</a>
+                        <a href="pastevent.html">Past Events</a>
+                        <a href="eventcalendar.html">Event Calendar</a>
+                    </div>
+                </li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+            <button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+        </nav>
+    </header>
+
+    <div class="main-content">
+        <div class="description">
+            <h2>Upcoming Events</h2>
+            <div class="events-list">
+                <div class="event">
+                    <div>
+                        <h3>25/12/2024 - Hackventure</h3>
+                        <p>Organized by: ritACM</p>
+                    </div>
+                    <button class="register-btn">Register Now</button>
+                </div>
+                <div class="event">
+                    <div>
+                        <h3>05/01/2025 - CodeFest</h3>
+                        <p>Organized by: CodeRIT</p>
+                    </div>
+                    <button class="register-btn">Register Now</button>
+                </div>
+                <div class="event">
+                    <div>
+                        <h3>15/01/2025 - TechTalk</h3>
+                        <p>Organized by: TedXmsrit</p>
+                    </div>
+                    <button class="register-btn">Register Now</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Club Manager. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
+</body>
+</html>
